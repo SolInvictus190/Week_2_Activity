@@ -111,6 +111,9 @@ def updateRoom(request, pk):
 @login_required(login_url='login')
 def deleteRoom(request, pk):
     room = Room.objects.get(id=pk)
+
+    if request.user != room.host:
+        return HttpResponse('Youre are not allowed here!')
     if request.method == 'POST':
         room.delete()
         return redirect('home')
@@ -118,7 +121,7 @@ def deleteRoom(request, pk):
 
 @login_required(login_url='login')
 def deleteMessage(request, pk):
-    meesage = Message.objects.get(id=pk)
+    message = Message.objects.get(id=pk)
 
     if request.user != message.user:
         return HttpResponse('Youre are not allowed here!')
