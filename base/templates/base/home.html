@@ -52,7 +52,7 @@
         <p>{{message}}</p>
         {% if request.user == message.user %}
         <a href=" {% url 'delete-message' message.id %}">Delete</a>
-        {% endif %}}
+        {% endif %}
     </div>
     {% endfor %}
 </div>
