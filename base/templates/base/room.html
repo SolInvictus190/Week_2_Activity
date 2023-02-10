@@ -28,14 +28,21 @@
                 <input type="text" name="body" placeholder="Write your mesage here..."/>
               </form>
               <hr>
-</div>
+    </div>
 
     {% endif %}
 
-</div>
+    </div>
   <div>
     <h3>Participants</h3>
     <hr>
+      {% for user in participants %}
+      <div>
+          <p>
+              @{{user.username}}
+          </p>
+      </div>
+      {% endfor %}
   </div>
 </div>
 
