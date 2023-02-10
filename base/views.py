@@ -125,7 +125,8 @@ def deleteMessage(request, pk):
     message = Message.objects.get(id=pk)
 
     if request.user != message.user:
-        return HttpResponse('Youre are not allowed here!')
+        return HttpResponse('Your are not allowed here!!')
+
     if request.method == 'POST':
         message.delete()
         return redirect('home')
